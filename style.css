@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+:root{--night:#101d14;--green:#1a3020;--cream:#fff6dc;--gold:#e9b94e;--muted:#b4bca8;--petal:#f2c64e}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:radial-gradient(ellipse at 50% 45%,#27452b 0%,#182d1d 43%,#0d1710 100%);color:var(--cream);font-family:'DM Sans',sans-serif}
+body{min-height:100svh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 48%,transparent 0 28%,rgba(0,0,0,.25) 100%);z-index:0}
+.scene{position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;align-items:center;text-align:center;padding:38px 18px 25px;overflow:hidden}
+.grain{position:absolute;inset:0;opacity:.12;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
+.eyebrow{font-size:10px;letter-spacing:.27em;color:#d6bd77;font-weight:600;margin:3px 0 20px}
+h1{font:500 clamp(36px,6vw,58px)/1.06 'Playfair Display',serif;letter-spacing:-.035em;margin:0}
+h1 em{font-weight:400;color:#f0c55d}
+.intro{font-size:12px;line-height:1.8;color:#c1cbb8;margin:15px 0 0}
+.flower-stage{position:relative;width:min(76vw,330px);height:min(76vw,330px);margin:4px auto -2px;display:grid;place-items:center;flex-shrink:0}
+.halo{position:absolute;width:74%;height:74%;border-radius:50%;background:rgba(240,189,62,.09);filter:blur(26px);animation:breathe 5s ease-in-out infinite}
+.sunflower{position:relative;width:100%;height:100%;cursor:pointer;outline:none;transform-origin:50% 52%;animation:sway 6s ease-in-out infinite}
+.petals{position:absolute;inset:0}
+.petal{position:absolute;left:50%;top:50%;width:14.8%;height:37%;transform-origin:50% 100%;border-radius:60% 60% 43% 43%;background:linear-gradient(90deg,#dca333 0%,#f8d969 45%,#f4c347 74%,#d99b2d 100%);box-shadow:inset 0 2px 4px #ffe99555,0 2px 6px #070d0855;transition:filter .35s, transform .55s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.petal:nth-child(3n){background:linear-gradient(90deg,#dca333,#ffdf78 48%,#edb83c 80%,#c88a25)}
+.petal:nth-child(4n){background:linear-gradient(90deg,#e2a933,#f6d05e 45%,#e7ad36)}
+.petal.active{filter:brightness(1.3) drop-shadow(0 0 8px #ffdc75aa)}
+.flower-center{position:absolute;left:50%;top:50%;width:35%;height:35%;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#72502b,#3b291b 62%,#241b14);border:3px solid #d69c32;box-shadow:0 0 0 4px #f3c64d22,0 0 24px #e7b44244,inset 0 2px 12px #0c0907}
+.flower-center:before{content:"";position:absolute;inset:8%;border-radius:50%;background-image:radial-gradient(#d9a44a 1px,transparent 1.5px);background-size:7px 7px;opacity:.45}
+.flower-center span{z-index:1;font:600 11px/1.2 'DM Sans',sans-serif;letter-spacing:.16em;color:#ffe5a0}
+.stem{position:absolute;z-index:-1;top:63%;left:49%;height:33%;width:8px;border-radius:10px;background:linear-gradient(90deg,#2a5933,#71924b 48%,#24462a);transform:rotate(2deg)}
+.leaf{position:absolute;z-index:-1;width:25%;height:12%;top:76%;background:linear-gradient(140deg,#73914c,#2e5c35 70%);border-radius:100% 0 100% 0;box-shadow:inset 0 1px 2px #b1c57866}
+.leaf:after{content:"";position:absolute;left:10%;top:50%;height:1px;width:80%;background:#a9c47788;transform:rotate(-20deg)}
+.leaf-left{left:26%;transform:rotate(15deg)}
+.leaf-right{right:23%;top:83%;transform:rotate(100deg) scale(.8)}
+.ground-glow{position:absolute;bottom:0;width:68%;height:15px;background:#e6b83c22;filter:blur(16px);border-radius:50%}
+.counter{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.18em;color:#b6c2a9;margin-top:-1px}
+#current{color:#f4cb63;font-size:12px;font-weight:600}
+.counter-line{height:1px;width:52px;background:linear-gradient(90deg,#d6ac48,#d6ac4844)}
+.phrase{font:italic 500 clamp(25px,5vw,36px)/1.15 'Playfair Display',serif;margin:13px 0 5px;color:#fff5d8;max-width:90vw;transition:opacity .25s,transform .25s}
+.language{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#e6bd60;margin:0}
+.transliteration{font:italic 12px 'Playfair Display',serif;color:#b9c4ad;margin:10px 0 0;min-height:16px}
+.controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px}
+button{font:600 10px 'DM Sans',sans-serif;letter-spacing:.12em;cursor:pointer;color:var(--cream);border:1px solid #d8bd6a55;background:#ffffff08;transition:background .2s,transform .2s,border-color .2s}
+button:active{transform:scale(.97)}
+.quiet{width:39px;height:39px;border-radius:50%;font-size:17px;letter-spacing:0}
+.quiet:hover{background:#f4ce6922;border-color:#f4ce69}
+.reveal{height:43px;padding:0 19px;border-radius:30px;background:#e8bd52;color:#26321b;border:0;box-shadow:0 7px 25px #d9a93b22}
+.reveal:hover{background:#ffdb76;transform:translateY(-1px)}
+.reveal span{font-size:15px;margin-left:8px}
+.footnote{font:italic 11px 'Playfair Display',serif;color:#9cae97;margin:18px 0 0}
+.sparkles{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffe7a0;box-shadow:0 0 10px #ffd96c;animation:float var(--dur) linear infinite;opacity:0}
+@keyframes sway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+@keyframes breathe{0%,100%{transform:scale(.92);opacity:.6}50%{transform:scale(1.1);opacity:1}}
+@keyframes float{0%{transform:translateY(15px) scale(.6);opacity:0}20%{opacity:.75}80%{opacity:.6}100%{transform:translateY(-100vh) scale(1.2);opacity:0}}
+@media(min-height:850px){.scene{padding-top:48px}.flower-stage{margin-top:16px;margin-bottom:8px}}
+@media(max-width:390px){.scene{padding-top:25px}.eyebrow{margin-bottom:15px}.flower-stage{width:min(78vw,285px);height:min(78vw,285px)}.intro{font-size:11px}.controls{margin-top:15px}.footnote{margin-top:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}

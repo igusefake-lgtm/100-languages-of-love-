@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#172b1b" />
+  <title>100 Languages of Love 🌻</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="scene">
+    <div class="grain"></div>
+    <div class="eyebrow">A LITTLE GARDEN, JUST FOR YOU</div>
+    <h1>100 languages.<br><em>One feeling.</em></h1>
+    <p class="intro">Somehow, every language in the world still feels too small<br class="desktop"> for the one thing I want to tell you.</p>
+
+    <section class="flower-stage" aria-label="Sunflower with one hundred petals">
+      <div class="halo"></div>
+      <div class="stem"></div>
+      <div class="leaf leaf-left"></div>
+      <div class="leaf leaf-right"></div>
+      <div id="sunflower" class="sunflower" role="button" tabindex="0" aria-label="Reveal a language of love">
+        <div id="petals" class="petals"></div>
+        <div class="flower-center"><span>LOVE<br>YOU</span></div>
+      </div>
+      <div class="ground-glow"></div>
+    </section>
+
+    <div class="counter"><span id="current">01</span><span class="counter-line"></span><span>100</span></div>
+    <p id="phrase" class="phrase" aria-live="polite">I love you</p>
+    <p id="language" class="language">English</p>
+    <p id="transliteration" class="transliteration">The words are simple. The feeling isn't.</p>
+
+    <div class="controls">
+      <button id="prev" class="quiet" type="button" aria-label="Previous language">←</button>
+      <button id="reveal" class="reveal" type="button">REVEAL THE NEXT PETAL <span>↗</span></button>
+      <button id="next" class="quiet" type="button" aria-label="Next language">→</button>
+    </div>
+    <p class="footnote">A hundred ways to say it. A thousand reasons to mean it.</p>
+  </main>
+  <div id="sparkles" class="sparkles" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
